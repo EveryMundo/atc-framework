@@ -1,3 +1,13 @@
+/*
+    Gulp 3.9.1 doesn't work with Node v12.x.x, and if you upgrade to Gulp 4.0.2, you have to completely change gulpfile.js 
+    with the new Syntax (Series & Parallels). So it's best to downgrade to Node v11.x.x
+    ----------------------
+    nvm install 11.15.0
+    nvm use 11.15.0 #just in case it didn't automatically select the 11.15.0 as the main node.
+    nvm uninstall 13.1.0
+    npm rebuild node-sass
+*/
+
 var pkg         = require('./package.json'),
     fs          = require('fs'),
     path        = require('path'),
