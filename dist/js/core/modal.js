@@ -68,10 +68,7 @@
 
             if (!this.element.length) return;
 
-            var $this = this, finalize = function() {
-                $this.dialog.css('transform', 'none');
-                UI.Utils.focus($this.dialog, 'a[href]');
-            };
+            var $this = this;
 
             if (this.isActive()) return;
 
@@ -94,11 +91,11 @@
                 this.hasTransitioned = false;
                 this.element.one(UI.support.transition.end, function(){
                     $this.hasTransitioned = true;
-                    finalize();
+                    UI.Utils.focus($this.dialog, 'a[href]');
                 }).addClass('uk-open');
             } else {
                 this.element.addClass('uk-open');
-                finalize();
+                UI.Utils.focus(this.dialog, 'a[href]');
             }
 
             $html.addClass('uk-modal-page').height(); // force browser engine redraw
@@ -188,7 +185,6 @@
             else activeCount = 0;
 
             this.element.hide().removeClass('uk-open');
-            this.dialog.css('transform', '');
 
             // Update ARIA
             this.element.attr('aria-hidden', 'true');
